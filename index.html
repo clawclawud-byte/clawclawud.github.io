@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ASHURA — клуб единоборств в Москве · тхэквондо, бокс, самбо, БЖЖ</title>
+<meta name="description" content="Тхэквондо, бокс, самбо и бразильское джиу-джитсу для взрослых и детей. Москва, Живописная 21 с5. Первая тренировка — бесплатно.">
+<meta name="theme-color" content="#161616">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASHURA — клуб единоборств в Москве">
+<meta property="og:description" content="Тхэквондо, бокс, самбо и БЖЖ для взрослых и детей. Первая тренировка — бесплатно.">
+<meta property="og:image" content="assets/img/logo-full.png">
+<link rel="icon" type="image/png" href="assets/img/logo-mask.png">
+<link rel="preload" href="assets/fonts/AlumniSans-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/GolosText-var-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ───────── fonts ───────── */
+@font-face{font-family:'Alumni Sans';src:url('assets/fonts/AlumniSans-var-cyrillic.woff2') format('woff2');font-weight:700 900;font-display:swap;
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Alumni Sans';src:url('assets/fonts/AlumniSans-var-latin.woff2') format('woff2');font-weight:700 900;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215}
+@font-face{font-family:'Golos Text';src:url('assets/fonts/GolosText-var-cyrillic.woff2') format('woff2');font-weight:400 700;font-display:swap;
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';src:url('assets/fonts/GolosText-var-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215}
+
+/* ───────── tokens ───────── */
+:root{
+  --bg:#161616;--bg2:#181818;--deep:#141414;--foot:#121212;
+  --card:#222222;--card2:#1E1E1E;--cell:#2C2C2C;--empty:#202020;
+  --line:#2A2A2A;--line2:#2E2E2E;--line3:#3A3A3A;--line4:#4A4A4A;
+  --fg:#F2EFEA;--soft:#CFC9C0;--mute:#A8A29A;--dim:#8F8980;
+  --red:#D21F26;--red2:#FF5A5F;--onred:#FFF1F1;--onred2:#FFE1E2;
+  --ok:#3DB47A;
+  --maxw:1200px;--gut:24px;
+  --ff-d:'Alumni Sans','Arial Narrow',Impact,sans-serif;
+  --ff-b:'Golos Text','Segoe UI',system-ui,sans-serif;
+  --skew:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.55 var(--ff-b);overflow-x:hidden;
+  padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--ff-d);font-weight:900;line-height:.9;text-transform:uppercase;letter-spacing:.01em}
+p{margin:0}
+ul{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--red2);outline-offset:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.tbd{color:var(--red2);border-bottom:1px dashed var(--red2)}
+
+/* ───────── buttons ───────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 28px;border:0;cursor:pointer;
+  text-decoration:none;font-weight:700;font-size:16px;background:var(--red);color:#fff;clip-path:var(--skew);transition:filter .15s,transform .12s}
+.btn:hover{filter:brightness(1.1)}.btn:active{transform:translateY(1px)}
+.btn--dark{background:#1E1E1E}
+.btn--ghost{background:transparent;border:2px solid var(--line4);clip-path:none;color:var(--fg);font-weight:600}
+.btn--ghost:hover{border-color:var(--fg);filter:none}
+.btn--outline{background:transparent;border:2px solid var(--red);clip-path:none;color:var(--fg);font-weight:600}
+.btn--outline:hover{background:var(--red);filter:none}
+.btn--sm{min-height:44px;padding:0 20px;font-size:15px}
+.btn--lg{min-height:60px;padding:0 34px;font-size:18px}
+.btn--wide{width:100%}
+.btn[disabled]{opacity:.6;cursor:wait}
+.pill{min-height:44px;padding:0 18px;background:transparent;color:var(--fg);border:2px solid var(--line4);font-size:15px;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s}
+.pill:hover{border-color:var(--mute)}
+.pill[aria-pressed="true"]{background:var(--red);border-color:var(--red)}
+
+/* ───────── header ───────── */
+.hdr{position:sticky;top:env(safe-area-inset-top,0);z-index:40;background:rgba(22,22,22,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr__in{display:flex;align-items:center;gap:20px;min-height:64px;max-width:var(--maxw);margin:0 auto;padding:8px var(--gut)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
+.brand img{width:44px;height:44px}
+.brand b{font-family:var(--ff-d);font-weight:900;font-size:30px;letter-spacing:.1em;line-height:1}
+.nav{display:none;gap:6px 22px;margin-left:auto;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;color:var(--soft);white-space:nowrap;padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav a:hover,.nav a[aria-current="true"]{color:var(--fg);border-bottom-color:var(--red)}
+.hdr__cta{margin-left:auto;white-space:nowrap}.hdr__cta-s{display:none}
+@media(max-width:560px){.hdr__cta-l{display:none}.hdr__cta-s{display:inline}}
+.burger{display:grid;place-items:center;width:44px;height:44px;background:transparent;border:2px solid var(--line3);cursor:pointer;margin-left:8px}
+.burger span{width:18px;height:2px;background:var(--fg);box-shadow:0 -6px 0 var(--fg),0 6px 0 var(--fg)}
+@media(min-width:1024px){.nav{display:flex}.hdr__cta{margin-left:16px}.burger{display:none}}
+.drawer{display:none;position:fixed;inset:64px 0 auto;z-index:39;background:#141414;border-bottom:2px solid var(--red);padding:8px var(--gut) 20px}
+.drawer[data-open="true"]{display:block}
+.drawer a{display:block;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;font-size:17px}
+
+/* ───────── sections ───────── */
+.sec{padding:88px 0}
+.sec--alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec--deep{background:var(--deep);border-top:4px solid var(--red)}
+.kick{font-size:14px;font-weight:600;letter-spacing:.24em;color:var(--red2);text-transform:uppercase}
+.sec h2{font-size:clamp(48px,6vw,76px);margin-top:8px}
+.sec__head{margin-bottom:32px}
+.sub{color:var(--mute);font-size:15px;margin-top:8px}
+.foot-note{font-size:14px;color:var(--mute);margin-top:4px}
+@media(max-width:640px){.sec{padding:60px 0}}
+
+/* ───────── hero ───────── */
+.hero{padding:72px 0 88px}
+.hero__in{display:flex;flex-wrap:wrap;align-items:center;gap:48px}
+.hero__txt{flex:1 1 440px;display:flex;flex-direction:column;gap:22px}
+.hero h1{font-size:clamp(64px,9vw,120px);line-height:.86}
+.hero h1 u{text-decoration:none;color:var(--red);display:block}
+.hero__p{font-size:18px;color:var(--soft);max-width:48ch}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero__chips{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--mute)}
+.hero__chips a{color:var(--mute);text-decoration:none}
+.hero__chips a:hover{color:var(--fg)}
+.hero__art{flex:0 1 360px;display:flex;justify-content:center}
+.hero__art img{width:min(100%,330px);height:auto}
+@media(max-width:640px){.hero{padding:40px 0 60px}.hero__art{order:-1;flex-basis:100%}.hero__art img{width:200px}}
+
+/* ───────── schedule ───────── */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.grid-scroll{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut)}
+.sgrid{display:grid;grid-template-columns:64px repeat(7,minmax(94px,1fr));gap:6px;min-width:760px}
+.sgrid__day{text-align:center;font-family:var(--ff-d);font-weight:800;font-size:22px;letter-spacing:.08em;color:var(--mute);padding-bottom:6px}
+.sgrid__day--we{color:var(--red2)}
+.sgrid__t{display:flex;align-items:center;font-family:var(--ff-d);font-weight:800;font-size:26px;letter-spacing:.04em}
+.cell{min-height:72px;padding:10px 12px;background:var(--cell);display:flex;flex-direction:column;justify-content:center;gap:2px;transition:opacity .2s,background .2s}
+.cell b{font-weight:600;font-size:15px;line-height:1.2}
+.cell span{font-size:13px;color:var(--mute)}
+.cell--off{opacity:.28}
+.cell--hot{background:var(--red)}.cell--hot span{color:var(--onred2)}
+.cell--empty{background:var(--empty);border:1px dashed var(--line2)}
+.cell--split{padding:0;gap:0;background:transparent}
+.part{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:8px 12px 8px 20px;position:relative;background:var(--cell);transition:opacity .2s,background .2s}
+.part+.part{border-top:2px solid var(--bg2)}
+.part b{font-weight:600;font-size:14px;line-height:1.2}
+.part span{font-size:12px;color:var(--mute)}
+.part--off{opacity:.28}
+.part--hot{background:var(--red)}.part--hot span{color:var(--onred2)}
+.zone{position:absolute;left:0;top:0;bottom:0;width:6px}
+.zone--red{background:var(--red)}.zone--black{background:#000}
+.part--hot .zone--red{background:#7A0F14}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:13px;color:var(--mute)}
+.legend i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px}
+
+/* ───────── trainers ───────── */
+.tp{background:var(--deep);border:2px solid var(--line2)}
+.tp__bar{display:flex;align-items:center;gap:14px;padding:16px 24px;background:var(--card2);border-bottom:2px solid var(--line2)}
+.tp__p1{padding:4px 12px;background:var(--red);font-family:var(--ff-d);font-weight:900;font-size:24px;line-height:1;transform:skewX(-10deg)}
+.tp__name{font-family:var(--ff-d);font-weight:900;font-size:clamp(24px,3vw,32px);letter-spacing:.04em;text-transform:uppercase;line-height:1}
+.tp__hint{margin-left:auto;font-size:12px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;display:none}
+@media(min-width:760px){.tp__hint{display:block}}
+.tp__body{display:grid;gap:28px;padding:28px 24px 40px}
+@media(min-width:900px){.tp__body{grid-template-columns:300px 1fr 1fr;padding:40px 32px 56px;align-items:start}}
+.tp__photo{position:relative;height:420px;background:#202020;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.tp__photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(.3) contrast(1.05)}
+.tp__photo::after{content:"";position:absolute;top:-10%;right:-6%;width:10px;height:120%;background:var(--red);transform:rotate(18deg);pointer-events:none}
+.tp__sil{position:absolute;inset:0;display:grid;place-items:center;background:repeating-linear-gradient(135deg,#1C1C1C 0 10px,#222 10px 20px)}
+.tp__sil svg{width:160px;opacity:.5}
+.tp__sil span{position:absolute;bottom:72px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;padding:0 20px}
+.tp__tag{position:absolute;left:0;bottom:28px;padding:6px 18px 6px 14px;background:var(--red);font-family:var(--ff-d);font-weight:900;font-size:24px;letter-spacing:.08em;clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%)}
+.roster{position:relative;min-height:300px}
+.ro{position:absolute;width:96px;height:96px;padding:0;border-radius:50%;border:2px solid var(--line3);cursor:pointer;overflow:visible;
+  background:repeating-linear-gradient(135deg,#2A2A2A 0 8px,#303030 8px 16px);color:var(--dim);display:grid;place-items:center;
+  font-family:var(--ff-d);font-weight:900;font-size:28px;transition:border-color .15s,transform .15s}
+.ro:hover{transform:scale(1.04);border-color:var(--mute)}
+.ro[aria-pressed="true"]{border:4px solid var(--red);color:var(--fg)}
+.ro img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 12%;filter:grayscale(.35)}
+.ro[aria-pressed="true"] img{filter:none}
+.ro__lbl{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%) skewX(-14deg);padding:2px 10px;background:var(--line3);color:#fff;font-size:17px;letter-spacing:.06em;line-height:1.2;white-space:nowrap}
+.ro[aria-pressed="true"] .ro__lbl{background:var(--red)}
+.ro__p1{position:absolute;top:-8px;right:-6px;padding:1px 6px;background:var(--red);color:#fff;font-size:16px;line-height:1.2}
+.ro--soon{border-style:dashed}
+.roster__hint{position:absolute;left:0;right:0;bottom:0;text-align:center;font-size:13px;color:var(--dim)}
+@media(max-width:899px){.roster{min-height:0;display:flex;flex-wrap:wrap;gap:22px 18px;justify-content:center;padding:10px 0 34px}.ro{position:relative!important;left:auto!important;top:auto!important}.roster__hint{position:static;flex-basis:100%;margin-top:6px}}
+.tinfo{display:flex;flex-direction:column;gap:14px}
+.tinfo h3{font-size:clamp(40px,4.4vw,56px);line-height:.9}
+.tinfo__n{font-weight:600;font-size:18px}
+.tinfo dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:15px}
+.tinfo dt{color:var(--mute)}
+.tinfo dd{margin:0;color:var(--fg)}
+.tinfo__bio{font-size:15px;color:var(--soft)}
+.tinfo .chips{display:flex;flex-wrap:wrap;gap:6px}
+.tinfo .chips b{font-size:13px;font-weight:600;padding:4px 10px;border:1px solid var(--line3);color:var(--soft)}
+.tp__foot{display:flex;justify-content:flex-end}
+.tp__foot b{padding:8px 26px 8px 22px;background:var(--red);font-family:var(--ff-d);font-weight:900;font-size:30px;letter-spacing:.06em;line-height:1;clip-path:polygon(16px 0,100% 0,100% 100%,0 100%)}
+
+/* ───────── prices ───────── */
+.tiers{display:flex;flex-wrap:wrap;gap:20px}
+.tier{flex:1 1 280px;padding:32px 28px;background:var(--card);border:2px solid var(--line2);display:flex;flex-direction:column;gap:16px}
+.tier__t{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--ff-d);font-weight:900;font-size:34px;text-transform:uppercase;line-height:1}
+.tier__t span{padding:2px 10px;background:#1E1E1E;font:600 13px/1.5 var(--ff-b);text-transform:none;letter-spacing:0}
+.tier__pr{font-family:var(--ff-d);font-weight:900;font-size:60px;line-height:1}
+.tier__pr small{font-size:26px;color:var(--mute);font-weight:900}
+.tier ul{padding-left:20px;font-size:15px;color:var(--soft);display:flex;flex-direction:column;gap:6px;flex:1}
+.tier--hot{background:var(--red);border-color:var(--red);color:#fff}
+.tier--hot .tier__pr small{color:var(--onred2)}
+.tier--hot ul{color:var(--onred)}
+.tier--hot .btn{background:#1E1E1E}
+
+/* ───────── red band ───────── */
+.band{background:var(--red);color:#fff}
+.band__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding:56px var(--gut);max-width:var(--maxw);margin:0 auto}
+.band__t{flex:1 1 520px;display:flex;flex-direction:column;gap:10px}
+.band__t b{font-family:var(--ff-d);font-weight:900;font-size:clamp(44px,5.5vw,72px);line-height:.9;text-transform:uppercase}
+.band__t p{font-size:18px;color:var(--onred)}
+
+/* ───────── gym ───────── */
+.gym{display:grid;gap:20px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:800px){.gym{grid-template-columns:repeat(6,1fr)}.gym>*:nth-child(1),.gym>*:nth-child(2){grid-column:span 2}.gym>*:nth-child(3){grid-column:span 2}.gym>*:nth-child(4),.gym>*:nth-child(5){grid-column:span 3}}
+.ph{position:relative;aspect-ratio:4/3;margin:0;overflow:hidden;background:#202020;border:1px solid var(--line2)}
+.ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.8);transition:transform .4s}
+.ph:hover img{transform:scale(1.03)}
+.ph figcaption{position:absolute;left:12px;bottom:12px;padding:5px 10px;background:rgba(20,20,20,.9);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.ph--empty{display:grid;place-items:center;background:repeating-linear-gradient(135deg,#1E1E1E 0 12px,#232323 12px 24px);border-style:dashed}
+.ph--empty span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center;padding:12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.facts b{font-weight:600;font-size:14px;padding:8px 14px;border:2px solid var(--line2);color:var(--soft)}
+
+/* ───────── map ───────── */
+.mapwrap{display:flex;flex-wrap:wrap;gap:20px}
+.map{flex:2 1 520px;min-width:0;position:relative;height:440px;background:#242424;border:1px solid #333}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+.map__pin{position:absolute;left:16px;top:14px;padding:6px 12px;background:var(--deep);font-size:13px;font-weight:600;letter-spacing:.06em;pointer-events:none}
+.addr{flex:1 1 300px;padding:28px;background:var(--card);border:2px solid var(--line2);display:flex;flex-direction:column;gap:20px}
+.addr .l{font-size:13px;font-weight:600;letter-spacing:.16em;color:var(--mute);display:block;margin-bottom:4px}
+.addr strong{font-size:18px;font-weight:600}
+.addr .btn{margin-top:auto}
+
+/* ───────── faq ───────── */
+.faqwrap{display:flex;flex-wrap:wrap;gap:40px}
+.faqwrap>.sec__head{flex:1 1 300px;margin:0}
+.faq{flex:2 1 560px;min-width:0}
+.faq details{border-bottom:1px solid #333}
+.faq summary{list-style:none;min-height:64px;padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-size:19px;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:0 0 36px;width:36px;height:36px;display:grid;place-items:center;background:var(--line2);font-size:24px;line-height:1;font-weight:400}
+.faq details[open] summary::after{content:"−";background:var(--red)}
+.faq .a{padding:0 52px 22px 0;color:var(--soft);font-size:16px}
+.faq .a+.a{margin-top:-10px}
+@media(max-width:640px){.faq summary{font-size:17px}.faq .a{padding-right:0}}
+
+/* ───────── form ───────── */
+.formwrap{display:flex;flex-wrap:wrap;gap:48px}
+.formwrap>.sec__head{flex:1 1 360px;margin:0}
+.formwrap>.sec__head p{color:var(--soft);margin-top:16px}
+.fbox{flex:1 1 460px;min-width:0;padding:32px;background:var(--card2);border:2px solid var(--line2)}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.f label,.f>span.l{font-size:14px;font-weight:600;color:var(--soft)}
+.f input,.f select,.f textarea{min-height:50px;padding:12px 14px;background:var(--deep);border:2px solid var(--line3);color:var(--fg);font-size:16px;border-radius:0;width:100%}
+.f textarea{resize:vertical;min-height:88px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--red)}
+.f input[aria-invalid="true"]{border-color:var(--red)}
+.f select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A8A29A' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:12px;padding-right:38px}
+.err{display:none;font-size:13px;color:var(--red2)}
+.f[data-err="true"] .err{display:block}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.agree{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--mute);cursor:pointer}
+.agree input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--red);flex:0 0 auto}
+.agree a{color:var(--soft)}
+.fmsg{display:none;margin-top:14px;padding:12px 14px;font-size:14px;border:2px solid var(--red);color:var(--red2)}
+.fmsg[data-show="true"]{display:block}
+.done{min-height:420px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:16px}
+.done__r{padding:4px 14px;background:var(--red);font-family:var(--ff-d);font-weight:900;font-size:26px;line-height:1.1}
+.done__h{font-family:var(--ff-d);font-weight:900;font-size:56px;line-height:.9;text-transform:uppercase}
+.done p{color:var(--soft)}
+
+/* ───────── footer ───────── */
+.ftr{background:var(--foot);border-top:1px solid var(--line)}
+.ftr__in{max-width:var(--maxw);margin:0 auto;padding:64px var(--gut) 32px;display:flex;flex-direction:column;gap:40px}
+.ftr__cols{display:flex;flex-wrap:wrap;gap:40px}
+.ftr__cols>div{flex:1 1 200px;display:flex;flex-direction:column;gap:6px}
+.ftr__cols>div:first-child{flex-basis:260px}
+.ftr .l{font-size:13px;font-weight:600;letter-spacing:.16em;color:var(--mute)}
+.ftr .l+.l,.ftr .mt{margin-top:12px}
+.ftr a{text-decoration:none;color:var(--fg)}
+.ftr a:hover{color:var(--red2)}
+.ftr__brand{display:flex;align-items:center;gap:10px}
+.ftr__brand img{width:56px;height:56px}
+.ftr__brand b{font-family:var(--ff-d);font-weight:900;font-size:36px;letter-spacing:.1em;line-height:1}
+.ftr__soc{display:flex;flex-wrap:wrap;gap:8px}
+.ftr__soc a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:2px solid var(--line3);font-weight:600;font-size:15px}
+.ftr__soc a:hover{border-color:var(--red);color:var(--fg)}
+.ftr__end{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+.ftr__end a{color:var(--dim)}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Перейти к содержанию</a>
+
+<header class="hdr">
+  <div class="hdr__in">
+    <a class="brand" href="#top" aria-label="ASHURA — на главную"><img src="assets/img/logo-mask.png" alt="" width="44" height="44"><b>ASHURA</b></a>
+    <nav class="nav" aria-label="Разделы сайта">
+      <a href="#schedule">Расписание</a><a href="#trainers">Тренеры</a><a href="#prices">Цены</a><a href="#gym">Зал</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn--sm hdr__cta" href="#form"><span class="hdr__cta-l">Бесплатная тренировка</span><span class="hdr__cta-s">Записаться</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Меню"><span></span></button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" data-open="false" aria-label="Мобильное меню">
+  <a href="#schedule">Расписание</a><a href="#trainers">Тренеры</a><a href="#prices">Цены</a><a href="#gym">Зал</a><a href="#map">Как добраться</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
+</nav>
+
+<main id="main">
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <div class="wrap hero__in">
+    <div class="hero__txt">
+      <p class="kick">Клуб единоборств · Москва</p>
+      <h1>Тренируйся <u>как воин</u></h1>
+      <p class="hero__p">Тхэквондо, бокс, самбо и бразильское джиу-джитсу для взрослых и детей. Первая тренировка — бесплатно.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#form">Записаться бесплатно</a>
+        <a class="btn btn--ghost" href="#schedule">Смотреть расписание</a>
+      </div>
+      <div class="hero__chips">
+        <span>Новички и опытные</span><span>Взрослые и дети</span><a href="#map">Живописная, 21 с5</a>
+      </div>
+    </div>
+    <div class="hero__art"><img src="assets/img/logo-full.png" alt="ASHURA — клуб единоборств" width="248" height="414" fetchpriority="high"></div>
+  </div>
+</section>
+
+<!-- ═══ 01 РАСПИСАНИЕ ═══ -->
+<section class="sec sec--alt" id="schedule">
+  <div class="wrap">
+    <div class="sec__head"><p class="kick">01 / Расписание</p><h2>Расписание тренировок</h2></div>
+    <div class="filters" id="filters" role="group" aria-label="Фильтр по направлению"></div>
+    <div class="grid-scroll">
+      <div class="sgrid" id="sgrid" role="table" aria-label="Расписание на неделю"></div>
+    </div>
+    <p class="legend"><span><i style="background:var(--red)"></i>Красная зона — татами, борьба</span><span><i style="background:#000;outline:1px solid var(--line3)"></i>Чёрная зона — ударные</span><span>Если в ячейке две группы — они идут одновременно в разных зонах зала</span></p>
+    <p class="foot-note" style="margin-top:12px">Расписание предварительное — до открытия может меняться. Актуальное уточняйте у администратора. Утро и день в будни — персональные тренировки по записи.</p>
+  </div>
+</section>
+
+<!-- ═══ 02 ТРЕНЕРЫ ═══ -->
+<section class="sec" id="trainers">
+  <div class="wrap">
+    <div class="sec__head"><p class="kick">02 / Тренеры</p><h2>Выбери своего тренера</h2></div>
+    <div class="tp">
+      <div class="tp__bar"><span class="tp__p1">1P</span><span class="tp__name" id="tpName">—</span><span class="tp__hint">Нажми на иконку тренера</span></div>
+      <div class="tp__body">
+        <div class="tp__photo" id="tpPhoto"></div>
+        <div class="roster" id="roster" role="group" aria-label="Выбор тренера"></div>
+        <div class="tinfo" id="tinfo" aria-live="polite"></div>
+      </div>
+      <div class="tp__foot"><b>Выбор тренера</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 ЦЕНЫ ═══ -->
+<section class="sec sec--alt" id="prices">
+  <div class="wrap">
+    <div class="sec__head"><p class="kick">03 / Цены</p><h2>Абонементы</h2></div>
+    <div class="tiers">
+      <article class="tier">
+        <div class="tier__t">Пробная</div>
+        <div class="tier__pr">0 ₽</div>
+        <ul><li>Первая тренировка в любом направлении</li><li>Знакомство с тренером и залом</li><li>Ничего покупать не нужно</li></ul>
+        <a class="btn btn--ghost" href="#form">Записаться</a>
+      </article>
+      <article class="tier">
+        <div class="tier__t">Одно направление</div>
+        <div class="tier__pr">8 000 ₽ <small>/ месяц</small></div>
+        <ul><li>Все группы выбранного направления</li><li>Тхэквондо, бокс, самбо или БЖЖ</li><li>Заморозка — <span class="tbd">условия уточняются</span></li></ul>
+        <a class="btn btn--ghost" href="#form">Выбрать</a>
+      </article>
+      <article class="tier tier--hot">
+        <div class="tier__t">Все направления <span>Выгоднее всего</span></div>
+        <div class="tier__pr">12 000 ₽ <small>/ месяц</small></div>
+        <ul><li>Тхэквондо, бокс, самбо и БЖЖ без ограничений</li><li>Любая группа из расписания</li><li>Заморозка — <span style="color:var(--onred2);border-bottom:1px dashed var(--onred2)">условия уточняются</span></li></ul>
+        <a class="btn" href="#form">Выбрать</a>
+      </article>
+    </div>
+    <p class="foot-note" style="margin-top:20px">Разовое занятие — <b style="color:var(--fg)">2 000 ₽</b>, любое направление из расписания. Детские и взрослые группы — по одной цене.</p>
+  </div>
+</section>
+
+<!-- ═══ BAND ═══ -->
+<section class="band" aria-label="Бесплатная тренировка">
+  <div class="band__in">
+    <div class="band__t"><b>Первая тренировка — бесплатно</b><p>Приходите познакомиться с тренером и залом. Нужны только спортивная форма и вода.</p></div>
+    <a class="btn btn--dark btn--lg" href="#form">Записаться</a>
+  </div>
+</section>
+
+<!-- ═══ 04 ЗАЛ ═══ -->
+<section class="sec" id="gym">
+  <div class="wrap">
+    <div class="sec__head"><p class="kick">04 / Зал</p><h2>Наш зал</h2></div>
+    <div class="gym">
+      <figure class="ph"><img src="assets/img/group-boxing.jpg" alt="Группа у боксёрского ринга" loading="lazy" width="700" height="525"><figcaption>Ринг</figcaption></figure>
+      <figure class="ph"><img src="assets/img/group-taekwondo.jpg" alt="Детская группа тхэквондо на татами" loading="lazy" width="1200" height="800"><figcaption>Татами</figcaption></figure>
+      <div class="ph ph--empty"><span>Фото · мешки</span></div>
+      <div class="ph ph--empty"><span>Фото · тренировка</span></div>
+      <div class="ph ph--empty"><span>Фото · раздевалки</span></div>
+    </div>
+    <div class="facts"><b>300 м²</b><b>потолки 6 м</b><b>ринг</b><b>татами</b><b>зона железа</b><b>раздевалки и душевые</b></div>
+  </div>
+</section>
+
+<!-- ═══ 05 КАРТА ═══ -->
+<section class="sec sec--alt" id="map">
+  <div class="wrap">
+    <div class="sec__head"><p class="kick">05 / Как добраться</p><h2>Мы на карте</h2></div>
+    <div class="mapwrap">
+      <div class="map">
+        <iframe title="ASHURA на карте — Москва, Живописная улица, 21 с5" src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%96%D0%B8%D0%B2%D0%BE%D0%BF%D0%B8%D1%81%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2021%D1%815&amp;z=16" loading="lazy" allowfullscreen></iframe>
+        <span class="map__pin">ASHURA · Живописная, 21 с5</span>
+      </div>
+      <div class="addr">
+        <div><span class="l">Адрес</span><strong>Москва, Живописная улица, 21, строение 5</strong></div>
+        <div><span class="l">Как найти</span><span class="tbd">Метро / остановка, ориентир у входа — уточнить</span></div>
+        <div><span class="l">Часы работы</span><span>Пн–Сб 07:00–22:00 · групповые с 17:00</span></div>
+        <div><span class="l">Парковка</span><span class="tbd">Есть / нет, где оставить машину — уточнить</span></div>
+        <a class="btn btn--outline" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%96%D0%B8%D0%B2%D0%BE%D0%BF%D0%B8%D1%81%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2021%D1%815" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 FAQ ═══ -->
+<section class="sec" id="faq">
+  <div class="wrap faqwrap">
+    <div class="sec__head"><p class="kick">06 / FAQ</p><h2>Частые вопросы</h2><p class="sub">Не нашли ответ? Напишите нам — <a href="#contacts">контакты внизу</a>.</p></div>
+    <div class="faq">
+      <details open><summary>Нужен ли опыт, чтобы начать?</summary><p class="a">Нет. Большинство приходит с нуля, в любом возрасте. Разминка и нагрузка в группе даются по уровню — новичок не делает то же, что спортгруппа. Первые две-три недели тренер держит нагрузку ниже вашего предела намеренно.</p></details>
+      <details><summary>С какого возраста можно заниматься?</summary><p class="a">Тхэквондо — детские группы с 6 лет, взрослые — с 14. Бокс — с 14 лет. Самбо и БЖЖ — взрослые группы, с 16 лет. Младшая группа тхэквондо построена на базовой технике и игровых заданиях.</p></details>
+      <details><summary>Что взять на первую тренировку?</summary><p class="a">Футболку, спортивные штаны или шорты, сменную обувь и воду. На татами занимаются босиком. Перчатки, кимоно и бинты покупать не нужно — на первое занятие всё выдадим.</p></details>
+      <details><summary>Как записаться на бесплатную тренировку?</summary><p class="a">Оставьте заявку в форме ниже или позвоните. Администратор перезвонит в течение дня, подберёт группу по возрасту и уровню и назовёт время. Приходите за 15 минут — покажем зал и познакомим с тренером.</p></details>
+      <details><summary>Это травмоопасно?</summary><p class="a">Контакт в детских группах дозированный и всегда в защите, спарринги — по уровню и только с разрешения тренера. В боксе новичок несколько месяцев работает на снарядах и в парах без сильного контакта. В самбо и БЖЖ борьба идёт на татами, ударов нет.</p></details>
+      <details><summary>Нужна ли медицинская справка?</summary><p class="a">Для первой бесплатной тренировки — нет. Для регулярных занятий и особенно для аттестаций и соревнований нужна справка от педиатра или терапевта.</p></details>
+      <details><summary>Можно ли заморозить абонемент?</summary><p class="a tbd" style="display:inline-block;border:0;padding-right:0">Условия заморозки уточняются к открытию: на сколько дней и в каких случаях.</p></details>
+      <details><summary>Обязательно ли участвовать в соревнованиях?</summary><p class="a">Нет. Соревнования и аттестации — по желанию. Часть занимается только для формы и техники и никогда не выходит на татами на турнире.</p></details>
+      <details><summary>Ребёнку не понравится — что тогда?</summary><p class="a">Первая тренировка бесплатная именно для этого. Если после неё ребёнок не хочет — никто не уговаривает. Можно прийти ещё раз через месяц или попробовать другое направление. Родители смотрят занятие целиком из зала.</p></details>
+      <details><summary>Есть ли раздевалки и душ?</summary><p class="a">Да: раздевалки, душевые, зона с железом для ОФП. Зал 300 м² с рингом и татами, потолки 6 метров.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 07 ЗАПИСЬ ═══ -->
+<section class="sec sec--deep" id="form">
+  <div class="wrap formwrap">
+    <div class="sec__head"><p class="kick">07 / Запись</p><h2>Запишись на бесплатную тренировку</h2><p>Оставьте контакты — администратор свяжется с вами, подберёт группу и удобное время.</p></div>
+    <div class="fbox">
+      <form id="signup" novalidate>
+        <div class="f" id="f-name"><label for="in-name">Имя</label><input id="in-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required><span class="err">Напишите, как к вам обращаться</span></div>
+        <div class="f" id="f-phone"><label for="in-phone">Телефон</label><input id="in-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required><span class="err">Нужен номер из 11 цифр — по нему свяжемся</span></div>
+        <div class="f"><span class="l">Как с вами связаться</span><div class="pills" id="contactPick" role="group" aria-label="Способ связи"></div><input type="hidden" name="contact" id="contactVal" value="Telegram"></div>
+        <div class="f"><label for="in-disc">Направление</label>
+          <select id="in-disc" name="direction">
+            <option>Пока не знаю — помогите выбрать</option><option>Тхэквондо — дети</option><option>Тхэквондо — взрослые</option><option>Бокс</option><option>Самбо</option><option>Бразильское джиу-джитсу</option>
+          </select></div>
+        <div class="f"><label for="in-note">Комментарий</label><textarea id="in-note" name="note" rows="3" placeholder="Опыт, удобное время, вопросы"></textarea></div>
+        <div class="f" id="f-agree" style="margin-bottom:22px">
+          <label class="agree"><input type="checkbox" name="agree" required><span>Согласен на обработку персональных данных согласно <a href="privacy.html" target="_blank" rel="noopener">политике конфиденциальности</a></span></label>
+          <span class="err">Без согласия мы не можем принять заявку</span>
+        </div>
+        <button class="btn btn--wide" type="submit" id="send" style="min-height:56px;font-size:17px">Отправить заявку</button>
+        <p class="fmsg" id="fmsg" role="alert"></p>
+      </form>
+      <div class="done" id="done" hidden>
+        <span class="done__r">READY?</span>
+        <div class="done__h">Заявка принята</div>
+        <p>Мы свяжемся с вами в течение дня, чтобы согласовать день первой тренировки.</p>
+        <button class="btn btn--ghost" type="button" id="reset">Отправить ещё одну заявку</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr" id="contacts">
+  <div class="ftr__in">
+    <div class="ftr__cols">
+      <div><div class="ftr__brand"><img src="assets/img/logo-mask.png" alt="" width="56" height="56"><b>ASHURA</b></div><span style="color:var(--mute);font-size:15px">Клуб единоборств</span></div>
+      <div><span class="l">Телефон</span><a href="tel:+79858514546" style="font-size:20px;font-weight:600">+7 985 851-45-46</a><span class="l mt">Почта</span><a href="mailto:ashura-fight-club@yandex.ru">ashura-fight-club@yandex.ru</a></div>
+      <div><span class="l">Адрес</span><span>Москва, Живописная ул., 21 с5</span><span class="l mt">Часы работы</span><span>Пн–Сб 07:00–22:00</span></div>
+      <div><span class="l">Мы в соцсетях</span><div class="ftr__soc"><a href="#contacts" title="ссылка появится позже">Telegram</a><a href="#contacts" title="ссылка появится позже">ВКонтакте</a><a href="#contacts" title="ссылка появится позже">WhatsApp</a></div></div>
+    </div>
+    <div class="ftr__end"><span>© 2026 ASHURA. Клуб единоборств · <span class="tbd">ИП/ООО, ИНН</span></span><a href="privacy.html">Политика конфиденциальности</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  /* Formspree: заменить на реальный адрес вида https://formspree.io/f/XXXXXXXX */
+  var FORM_ENDPOINT = 'FORMSPREE_ENDPOINT';
+  var PHONE = '+7 985 851-45-46';
+
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var esc = function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+
+  /* ── расписание ── */
+  var D = {W:'Тхэквондо',B:'Бокс',S:'Самбо',J:'БЖЖ'};
+  var SLOT = {W1:{d:'W',sub:'Дети'},W2:{d:'W',sub:'Взрослые'},B:{d:'B',sub:'Все уровни'},S:{d:'S',sub:'Все уровни'},J:{d:'J',sub:'Взрослые'}};
+  var DAYS = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+  var ZONES = ['Красная зона','Чёрная зона'];
+  var codesOf = function(c){ return !c ? [] : (Array.isArray(c) ? c : [c]); };
+  var ROWS = [
+    ['07:30',['B','','B','','B','','']],
+    ['11:00',['','','','','','J','S']],
+    /* массив в ячейке = две группы одновременно: [красная зона, чёрная зона] */
+    ['17:00',['W1',['S','W1'],'W1',['S','W1'],'W1','W1','']],
+    ['18:30',['W2',['J','W2'],'W2',['J','W2'],'W2','','']],
+    ['20:00',['B','S','B','J','B','','']]
+  ];
+  var filter = 'all';
+
+  function slotsFor(code){
+    var out = [];
+    ROWS.forEach(function(r){
+      var days = [];
+      r[1].forEach(function(c,i){ if(codesOf(c).some(function(x){return SLOT[x].d === code})) days.push(DAYS[i]); });
+      if(days.length) out.push(days.join(', ') + ' · ' + r[0]);
+    });
+    return out;
+  }
+
+  function renderSchedule(){
+    var f = $('#filters');
+    var opts = [['all','Все']].concat(['W','B','S','J'].map(function(c){return [c,D[c]]}));
+    f.innerHTML = opts.map(function(o){
+      return '<button type="button" class="pill" data-filter="'+o[0]+'" aria-pressed="'+(filter===o[0])+'">'+esc(o[1])+'</button>';
+    }).join('');
+    var h = '<div role="row" style="display:contents"><span></span>' + DAYS.map(function(d,i){
+      return '<span role="columnheader" class="sgrid__day'+(i>4?' sgrid__day--we':'')+'">'+d+'</span>';
+    }).join('') + '</div>';
+    ROWS.forEach(function(r){
+      h += '<div role="row" style="display:contents"><span role="rowheader" class="sgrid__t">'+r[0]+'</span>';
+      r[1].forEach(function(c){
+        var codes = codesOf(c);
+        if(!codes.length){ h += '<div role="cell" class="cell cell--empty"></div>'; return; }
+        if(codes.length === 1){
+          var s = SLOT[codes[0]], match = filter==='all' || filter===s.d, hot = filter!=='all' && match;
+          h += '<div role="cell" class="cell'+(match?'':' cell--off')+(hot?' cell--hot':'')+'"><b>'+esc(D[s.d])+'</b><span>'+esc(s.sub)+'</span></div>';
+          return;
+        }
+        /* две группы в одно время — делим ячейку на зоны */
+        var any = filter==='all' || codes.some(function(x){return SLOT[x].d===filter});
+        h += '<div role="cell" class="cell cell--split'+(any?'':' cell--off')+'">';
+        codes.forEach(function(x,zi){
+          var s2 = SLOT[x], m2 = filter==='all' || filter===s2.d, hot2 = filter!=='all' && m2;
+          h += '<div class="part'+(m2?'':' part--off')+(hot2?' part--hot':'')+'"><i class="zone zone--'+(zi?'black':'red')+'" title="'+ZONES[zi]+'"></i><b>'+esc(D[s2.d])+'</b><span>'+esc(s2.sub)+'</span></div>';
+        });
+        h += '</div>';
+      });
+      h += '</div>';
+    });
+    $('#sgrid').innerHTML = h;
+  }
+  $('#filters').addEventListener('click', function(e){
+    var b = e.target.closest('[data-filter]'); if(!b) return;
+    filter = b.dataset.filter; renderSchedule();
+  });
+
+  /* ── тренеры ── */
+  var T = [
+    {num:'01',name:'Кусакин Андрей',code:'W',short:'ТКД',tag:'TAEKWONDO',disc:'Тхэквондо',img:'assets/img/coach-kusakin.jpg',
+     exp:'17+ лет',regalia:['3 дан','Мастер спорта','Чемпион России','Призёр Кубка Европы'],groups:'Дети с 6 лет, подростки, взрослые',
+     bio:'Главный тренер клуба. Чемпион Москвы и Кубка России, высшее педагогическое образование. Ведёт все группы тхэквондо — от первых шагов до спортгруппы; ученики входят в сборные Москвы и России.'},
+    {num:'02',name:'Козловский Артур',code:'B',short:'БОКС',tag:'BOXING',disc:'Бокс',img:null,
+     exp:null,regalia:['Тренер профи','Команда Дмитрия Бивола'],groups:'Подростки с 14 лет, взрослые, профи',
+     bio:'Партнёр клуба по боксу. Опыт сборов в команде Дмитрия Бивола; методики большого спорта в тренировках для любителей. Новичок несколько месяцев работает на снарядах без жёсткого контакта.'},
+    {num:'03',name:'Тренер по самбо',code:'S',short:'САМБО',tag:'SAMBO',disc:'Самбо',img:null,soon:true,
+     exp:null,regalia:['Направление открывается'],groups:'Взрослые с 16 лет, все уровни',
+     bio:'Группы самбо уже стоят в расписании — тренер будет объявлен к открытию. Записывайтесь на пробную: позовём первыми.'},
+    {num:'04',name:'Тренер по БЖЖ',code:'J',short:'БЖЖ',tag:'BJJ',disc:'Бразильское джиу-джитсу',img:null,soon:true,
+     exp:null,regalia:['Направление открывается'],groups:'Взрослые с 16 лет',
+     bio:'Бразильское джиу-джитсу стартует вместе с клубом — тренер будет объявлен к открытию. Записывайтесь на пробную: позовём первыми.'}
+  ];
+  var POS = [[120,0],[220,62],[80,124],[180,186]];
+  var cur = 0;
+  var SIL = '<svg viewBox="0 0 48 60" fill="none" stroke="#F2EFEA" stroke-width="2" aria-hidden="true"><circle cx="24" cy="16" r="10"/><path d="M4 58c0-12 9-20 20-20s20 8 20 20"/></svg>';
+
+  function renderTrainers(){
+    $('#roster').innerHTML = T.map(function(t,i){
+      var on = i===cur;
+      return '<button type="button" class="ro'+(t.soon?' ro--soon':'')+'" data-trainer="'+i+'" aria-pressed="'+on+'" aria-label="'+esc(t.name+', '+t.disc)+'" style="left:'+POS[i][0]+'px;top:'+POS[i][1]+'px">'
+        + (t.img ? '<img src="'+t.img+'" alt="">' : '<span>'+t.num+'</span>')
+        + '<span class="ro__lbl">'+esc(t.short)+'</span>'
+        + (on ? '<span class="ro__p1">1P</span>' : '') + '</button>';
+    }).join('') + '<span class="roster__hint">Нажмите на тренера, чтобы увидеть информацию</span>';
+
+    var t = T[cur];
+    $('#tpName').textContent = t.name;
+    $('#tpPhoto').innerHTML = (t.img
+      ? '<img src="'+t.img+'" alt="'+esc(t.name)+'">'
+      : '<div class="tp__sil">'+SIL+'<span>'+(t.soon?'Тренер будет объявлен к открытию':'Нужен портрет тренера')+'</span></div>')
+      + '<span class="tp__tag">'+esc(t.tag)+'</span>';
+
+    var slots = t.code ? slotsFor(t.code) : [];
+    var h = '<p class="kick">Направление</p><h3>'+esc(t.disc)+'</h3><p class="tinfo__n">'+esc(t.name)+'</p>';
+    h += '<div class="chips">'+t.regalia.map(function(r){return '<b>'+esc(r)+'</b>'}).join('')+'</div>';
+    h += '<dl>';
+    if(t.exp) h += '<dt>Стаж</dt><dd>'+esc(t.exp)+'</dd>';
+    h += '<dt>Группы</dt><dd>'+esc(t.groups)+'</dd>';
+    h += '<dt>Тренировки</dt><dd>'+(slots.length ? slots.map(esc).join('<br>') : 'По записи')+'</dd>';
+    h += '</dl><p class="tinfo__bio">'+esc(t.bio)+'</p>';
+    h += '<a class="btn" href="#form" data-pick="'+esc(t.disc)+'">'+(t.soon?'Записаться на пробную':'Записаться к тренеру')+'</a>';
+    $('#tinfo').innerHTML = h;
+  }
+  $('#roster').addEventListener('click', function(e){
+    var b = e.target.closest('[data-trainer]'); if(!b) return;
+    cur = +b.dataset.trainer; renderTrainers();
+  });
+  /* кнопка в карточке тренера предвыбирает направление в форме */
+  $('#tinfo').addEventListener('click', function(e){
+    var a = e.target.closest('[data-pick]'); if(!a) return;
+    var sel = $('#in-disc'), want = a.dataset.pick;
+    $$('option', sel).forEach(function(o){ if(o.textContent.indexOf(want.split(' ')[0]) === 0) sel.value = o.textContent; });
+  });
+
+  /* ── способ связи ── */
+  var contact = 'Telegram';
+  function renderContacts(){
+    $('#contactPick').innerHTML = ['Звонок','Telegram','WhatsApp'].map(function(c){
+      return '<button type="button" class="pill" data-contact="'+c+'" aria-pressed="'+(contact===c)+'">'+c+'</button>';
+    }).join('');
+    $('#contactVal').value = contact;
+  }
+  $('#contactPick').addEventListener('click', function(e){
+    var b = e.target.closest('[data-contact]'); if(!b) return;
+    contact = b.dataset.contact; renderContacts();
+  });
+
+  /* ── бургер ── */
+  var burger = $('#burger'), drawer = $('#drawer');
+  burger.addEventListener('click', function(){
+    var open = drawer.dataset.open === 'true';
+    drawer.dataset.open = String(!open); burger.setAttribute('aria-expanded', String(!open));
+  });
+  $$('a', drawer).forEach(function(a){ a.addEventListener('click', function(){ drawer.dataset.open='false'; burger.setAttribute('aria-expanded','false'); }); });
+
+  /* ── форма ── */
+  var form = $('#signup'), phone = $('#in-phone'), msg = $('#fmsg'), send = $('#send');
+  function fmt(v){
+    var d = v.replace(/\D/g,'');
+    if(d[0]==='8') d = '7'+d.slice(1);
+    if(d[0]!=='7') d = '7'+d;
+    d = d.slice(0,11);
+    var o = '+7';
+    if(d.length>1) o += ' ('+d.slice(1,4);
+    if(d.length>=4) o += ') '+d.slice(4,7);
+    if(d.length>=8) o += '-'+d.slice(7,9);
+    if(d.length>=10) o += '-'+d.slice(9,11);
+    return o;
+  }
+  phone.addEventListener('input', function(){
+    var end = phone.selectionStart === phone.value.length;
+    phone.value = fmt(phone.value);
+    if(end) phone.setSelectionRange(phone.value.length, phone.value.length);
+  });
+  phone.addEventListener('focus', function(){ if(!phone.value) phone.value = '+7 ('; });
+  phone.addEventListener('blur', function(){ if(phone.value === '+7 (') phone.value = ''; });
+
+  function setErr(id, on){
+    var f = $('#'+id); f.dataset.err = String(on);
+    var i = $('input', f); if(i) i.setAttribute('aria-invalid', String(on));
+  }
+  function validate(){
+    var ok = true;
+    var n = form.name.value.trim(); setErr('f-name', !n); ok = ok && !!n;
+    var p = form.phone.value.replace(/\D/g,'').length === 11; setErr('f-phone', !p); ok = ok && p;
+    var a = form.agree.checked; setErr('f-agree', !a); ok = ok && a;
+    return ok;
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault(); msg.dataset.show = 'false';
+    if(!validate()){ var bad = $('[data-err="true"] input', form); if(bad) bad.focus(); return; }
+    if(FORM_ENDPOINT.indexOf('formspree.io') === -1){
+      msg.textContent = 'Форма ещё не подключена к сервису. Позвоните нам: '+PHONE; msg.dataset.show = 'true'; return;
+    }
+    send.disabled = true; send.textContent = 'Отправка…';
+    fetch(FORM_ENDPOINT, {method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)})
+      .then(function(r){ if(!r.ok) throw 0; form.reset(); contact='Telegram'; renderContacts(); form.hidden = true; $('#done').hidden = false; })
+      .catch(function(){ msg.textContent = 'Не отправилось. Позвоните нам: '+PHONE; msg.dataset.show = 'true'; })
+      .then(function(){ send.disabled = false; send.textContent = 'Отправить заявку'; });
+  });
+  $('#reset').addEventListener('click', function(){ $('#done').hidden = true; form.hidden = false; $('#in-name').focus(); });
+
+  /* ── подсветка меню ── */
+  var links = $$('.nav a'), map = {};
+  links.forEach(function(a){ var el = $(a.getAttribute('href')); if(el) map[el.id] = a; });
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting && map[en.target.id]){ links.forEach(function(a){a.removeAttribute('aria-current')}); map[en.target.id].setAttribute('aria-current','true'); } });
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    Object.keys(map).forEach(function(id){ io.observe($('#'+id)); });
+  }
+
+  renderSchedule(); renderTrainers(); renderContacts();
+})();
+</script>
+</body>
+</html>
