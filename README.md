@@ -1,9 +1,7 @@
 # ASHURA — лендинг клуба единоборств
 
-Статический сайт, без сборки и зависимостей. Открывается с диска и с любого статик-хостинга (GitHub Pages: Settings → Pages → Deploy from branch, папка `/ (root)`).
+Статический сайт, собран скриптом `build.py` из исходников (не править здесь — правки затрутся).
+Адрес сборки: https://clawclawud-byte.github.io/clawclawud.github.io/
 
-- `index.html` — сайт
-- `privacy.html` — политика конфиденциальности (шаблон, реквизиты не заполнены)
-- `assets/` — шрифты и фото
-
-Перед публикацией: вставить адрес Formspree в `index.html` (`FORM_ENDPOINT`).
+GitHub Pages: Settings → Pages → Deploy from a branch → `main` / `(root)`.
+Перед боевой публикацией: вставить адрес Formspree в `index.html` (`FORM_ENDPOINT`), сменить `SITE_URL` в `build.py`.
